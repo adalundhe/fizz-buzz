@@ -1,24 +1,16 @@
 package routes
 
 import (
+  models"github.com/sean_c/fizz_buzz/server/models"
   "os"
   "net/http"
   "fmt"
   "encoding/json"
-  // "strconv"
-  // "bytes"
   "io/ioutil"
+  "strconv"
+  "bytes"
   "time"
 )
-
-type MaxRange struct {
-  max_range int
-
-}
-
-type ResultsArray struct {
-  Results_Array []string `json: results_array`
-}
 
 func Index(w http.ResponseWriter, r *http.Request) {
   return
@@ -27,27 +19,21 @@ func Index(w http.ResponseWriter, r *http.Request) {
 func ExecuteFizzBuzz(w http.ResponseWriter, r *http.Request){
 
     client := http.Client{
-      Timeout: time.Second * 2, // Maximum of 2 secs
+      Timeout: time.Second * 60, // Maximum of 2 secs
     }
 
     googleFunctionUrl := os.Getenv("FUNCTION_URL")
 
-    // maxRange, err := strconv.Atoi(os.Getenv("MAX_RANGE"))
-    //
-    // fmt.Printf("%v", maxRange)
-    //
-    // if err != nil {
-    //   panic(err)
-    // }
+    maxRange, err := strconv.Atoi(os.Getenv("MAX_RANGE"))
+    if err != nil {
+      panic(err)
+    }
 
-    // maxRangeData := &MaxRange{max_range: maxRange}
-    //
-    // data, err := json.Marshal(maxRangeData)
-    //
-    // fmt.Println("%v", data)
-    // , bytes.NewBuffer(data)
+    maxRangeData := &models.MaxRange{Max_Range: maxRange}
 
-    request, err := http.NewRequest(http.MethodGet, googleFunctionUrl, nil)
+    data, err := json.Marshal(maxRangeData)
+
+    request, err := http.NewRequest(http.MethodPost, googleFunctionUrl, bytes.NewBuffer(data))
     if err != nil {
       panic(err)
     }
@@ -62,7 +48,7 @@ func ExecuteFizzBuzz(w http.ResponseWriter, r *http.Request){
       panic(readErr)
     }
 
-    results := ResultsArray{}
+    results := models.ResultsArray{}
 
     jsonErr := json.Unmarshal(body, &results)
     if jsonErr != nil {
