@@ -1,0 +1,5 @@
+FROM golang:1.8.3
+WORKDIR /go/src/github.com/scorbettUM/fizz_buzz/server
+COPY ./ .
+RUN go get -d -v github.com/gorilla/mux \
+  && CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o ./ .
