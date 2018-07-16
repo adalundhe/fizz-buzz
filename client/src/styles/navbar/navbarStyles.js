@@ -3,7 +3,7 @@ const navBarStyle = {
   display: "flex",
   flexDirection: "row",
   justifyContent: "space-evenly",
-  margin: "2em"
+  backgroundColor: "#2196F3"
 }
 
 export default navBarStyle

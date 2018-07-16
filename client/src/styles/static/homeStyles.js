@@ -4,7 +4,6 @@ const homeStyle = {
   justifyContent: "space-evenly",
   flexDirection: "row",
   margin: "4em",
-  paddingLeft: "3.7em",
   alignItems: "center",
   height: "20em",
   messageItem: {

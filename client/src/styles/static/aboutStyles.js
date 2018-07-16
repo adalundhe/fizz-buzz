@@ -3,7 +3,6 @@ const aboutStyle = {
   textAlign: "center",
   flexDirection: "column",
   margin: "12em",
-  paddingLeft: "3.7em",
   alignItems: "center",
   height: "20em",
   aboutMessage: {
