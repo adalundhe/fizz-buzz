@@ -1,0 +1,9 @@
+server:
+  build: ./server
+  ports:
+    - 8000:8000
+  volumes:
+    - ./api:/go/src/github.com/scorbettUM/fizz_buzz/server
+  environment:
+    - FUNCTION_URL=https://us-central1-my-project-1531191240022.cloudfunctions.net/fizz-buzz
+    - MAX_RANGE=15
