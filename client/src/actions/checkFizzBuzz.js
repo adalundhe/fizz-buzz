@@ -5,14 +5,23 @@ import {
   CHECK_FIZZBUZZ,
   CHECK_FIZZ,
   CHECK_BUZZ,
-  GET_NEXT_NUMBER
+  GET_NEXT_NUMBER,
+  CHECK_IS_END,
+  CHECK_PLAYER_WIN_STATE,
+  SET_GAME_END_STATE
 } from '../constants'
 
-const checkFizzBuzz = (currentNumber) => {
+const checkFizzBuzz = () => {
   return dispatch => {
+    console.log("GOT")
     dispatch({
-      type: SELECT_NUMBER,
-      currentNumber
+      type: CHECK_IS_END
+    })
+    dispatch({
+      type: CHECK_PLAYER_WIN_STATE
+    })
+    dispatch({
+      type: SET_GAME_END_STATE
     })
     dispatch({
       type: CHECK_FIZZ
@@ -28,6 +37,9 @@ const checkFizzBuzz = (currentNumber) => {
     })
     dispatch({
       type: DECREMENT_SCORE_FIZZBUZZ
+    })
+    dispatch({
+      type: SELECT_NUMBER
     })
     dispatch({
       type: GET_NEXT_NUMBER

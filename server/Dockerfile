@@ -14,3 +14,5 @@ RUN go install -v ./
 ENTRYPOINT /go/bin/server
 
 EXPOSE 8000
+
+RUN docker run -p 8000:8000 fizz_buzz

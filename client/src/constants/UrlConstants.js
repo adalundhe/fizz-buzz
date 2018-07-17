@@ -1,1 +1,1 @@
-export const API_URL = '/fizz_buzz'
+export const API_URL = '/api/fizz_buzz'

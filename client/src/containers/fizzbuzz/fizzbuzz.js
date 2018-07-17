@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { FizzBuzzButton, FizzButton, BuzzButton, PassButton, CurrentNumberDisplay, ScoreDisplay } from '../../components'
-import { fetchData } from '../../actions'
+import { FizzBuzzGame} from '../../components'
+import { getData } from '../../actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
@@ -9,44 +9,20 @@ class FizzBuzz extends Component {
       loaded: false
     }
     componentDidMount = () => {
-      console.log(this.props)
-      this.props.fetchData()
+      this.props.getData()
     }
     render(){
       return(
-        <div>
-          <div>
-            <CurrentNumberDisplay />
-            <ScoreDisplay />
-          </div>
-          <div>
-            <FizzButton />
-            <BuzzButton />
-            <FizzBuzzButton />
-          </div>
-          <div>
-            <PassButton />
-          </div>
-        </div>
+        <FizzBuzzGame />
       )
     }
-
 }
 
-const mapStateToProps = (state) => {
-    return {
-        resultsArray: state.resultsArray,
-        hasErrored: state.requestHasErrored,
-        isLoading: state.requestIsLoading
-    };
-};
+const mapStateToProps = () => ({})
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        fetchData: (url) => dispatch(fetchData(url))
-    };
-};
-
+const mapDispatchToProps = dispatch => bindActionCreators({
+  getData
+}, dispatch)
 
 export default connect(
   mapStateToProps,

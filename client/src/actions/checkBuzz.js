@@ -3,14 +3,22 @@ import {
   INCREMENT_SCORE_BUZZ,
   DECREMENT_SCORE_BUZZ,
   CHECK_BUZZ,
-  GET_NEXT_NUMBER
+  GET_NEXT_NUMBER,
+  CHECK_IS_END,
+  CHECK_PLAYER_WIN_STATE,
+  SET_GAME_END_STATE
 } from '../constants'
 
-const checkBuzz = (currentNumber) => {
+const checkBuzz = () => {
   return dispatch => {
     dispatch({
-      type: SELECT_NUMBER,
-      currentNumber
+      type: CHECK_IS_END
+    })
+    dispatch({
+      type: CHECK_PLAYER_WIN_STATE
+    })
+    dispatch({
+      type: SET_GAME_END_STATE
     })
     dispatch({
       type: CHECK_BUZZ
@@ -22,9 +30,11 @@ const checkBuzz = (currentNumber) => {
       type: DECREMENT_SCORE_BUZZ
     })
     dispatch({
+      type: SELECT_NUMBER
+    })
+    dispatch({
       type: GET_NEXT_NUMBER
     })
-
   }
 }
 

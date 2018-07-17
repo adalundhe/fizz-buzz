@@ -1,16 +1,32 @@
 import React from 'react'
 import { bindActionCreators } from 'redux'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { passNumber } from '../../../actions'
+import { withStyles } from '@material-ui/core/styles';
+import { gameButtonStyle } from '../../../styles'
+import Button from '@material-ui/core/Button';
 
-const PassButton = (props) =>
-  <div>
-    <button
-      onClick={props.passNumber}
-    >
-      Pass
-    </button>
-  </div>
+const PassButton = (props) => {
+  const { classes } = props;
+
+  return (
+    <div>
+      <Button
+        variant="fab"
+        color="primary"
+        className={classes.button}
+        onClick={props.passNumber}
+      >
+        Pass
+      </Button>
+    </div>
+  )
+}
+
+PassButton.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
 
 const mapStateToProps = ({ fizzBuzz }) => ({
   currentNumber: fizzBuzz.currentNumber
@@ -20,7 +36,9 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   passNumber
 }, dispatch)
 
+const styledButton = withStyles(gameButtonStyle)(PassButton)
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(PassButton)
+)(styledButton)
