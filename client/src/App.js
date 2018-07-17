@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {NavBar, Routes} from './components'
 import {BrowserRouter as Router} from 'react-router-dom'
-
 const App = () =>
   <div>
     <Router>
@@ -12,4 +11,4 @@ const App = () =>
     </Router>
   </div>
 
-export default App;
+export default App

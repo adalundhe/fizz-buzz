@@ -2,14 +2,15 @@ import {
   SELECT_NUMBER,
   INCREMENT_SCORE_FIZZ,
   DECREMENT_SCORE_FIZZ,
-  CHECK_FIZZ
-}
+  CHECK_FIZZ,
+  GET_NEXT_NUMBER
+} from '../constants'
 
-const checkFizz = (selectNumber) => {
+const checkFizz = (currentNumber) => {
   return dispatch => {
     dispatch({
-      type: SELECT_NUMBER.
-      selectNumber
+      type: SELECT_NUMBER,
+      currentNumber
     })
     dispatch({
       type: CHECK_FIZZ
@@ -19,6 +20,9 @@ const checkFizz = (selectNumber) => {
     })
     dispatch({
       type: DECREMENT_SCORE_FIZZ
+    })
+    dispatch({
+      type: GET_NEXT_NUMBER
     })
 
   }

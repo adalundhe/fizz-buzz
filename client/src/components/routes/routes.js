@@ -1,6 +1,7 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom'
-import { Home, About, FizzBuzz} from '../../components'
+import { Home, About } from '../../components'
+import { FizzBuzzContainer } from '../../containers'
 
 const Routes = (props) => {
 
@@ -9,7 +10,7 @@ const Routes = (props) => {
       {
         <Switch>
           <Route exact path={"/"} component={Home} />
-          <Route path={'/fizzbuzz'} component={FizzBuzz} />
+          <Route path={'/fizzbuzz'} component={FizzBuzzContainer} />
           <Route path={'/about'} component={About} />
         </Switch>
       }

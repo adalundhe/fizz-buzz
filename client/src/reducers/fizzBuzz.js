@@ -1,5 +1,4 @@
 import {
-  GET_DATA,
   SELECT_NUMBER,
   INCREMENT_SCORE_FIZZBUZZ,
   DECREMENT_SCORE_FIZZBUZZ,
@@ -10,7 +9,7 @@ import {
   CHECK_FIZZBUZZ,
   CHECK_FIZZ,
   CHECK_BUZZ,
-  CHECK_CORRECT_GUESS,
+  GET_NEXT_NUMBER,
   initialState
 } from '../constants'
 
@@ -19,12 +18,12 @@ export default (state = initialState, action) => {
     case CHECK_FIZZ:
       return {
         ...state,
-        isFizz: (state.selectedNumber%5 == 0) ? true : false
+        isFizz: (state.currentNumber%5 === 0) ? true : false
       }
     case CHECK_BUZZ:
       return {
         ...state,
-        isBuzz: (state.selectedNumber%3 == 0) ? true : false
+        isBuzz: (state.currentNumber%3 === 0) ? true : false
       }
     case CHECK_FIZZBUZZ:
       return {
@@ -64,9 +63,13 @@ export default (state = initialState, action) => {
     case SELECT_NUMBER:
     return {
       ...state,
-      selectedNumber: action.selectedNumber
+      currentNumber: state.resultsArray[state.currentNumberIndex]
     }
-
+    case GET_NEXT_NUMBER:
+      return {
+        ...state,
+        currentNumberIndex: (state.currentNumberIndex < state.resultsArray.length) ? state.currentNumberIndex + 1 : 0
+      }
     default:
       return state
   }
