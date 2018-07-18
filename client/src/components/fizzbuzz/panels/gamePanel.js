@@ -4,7 +4,7 @@ import { FizzBuzzButton, FizzButton, BuzzButton, PassButton } from '../buttons'
 import { CurrentNumberDisplay, ScoreDisplay, TimerDisplay } from '../displays'
 import { buttonContainerStyle, displayContainerStyle, gamePanelStyle } from '../../../styles'
 
-const GamePanel = (props) => props.gameReady ?
+const GamePanel = (props) => (props.gameReady && !props.isEnd) ?
   <div style={gamePanelStyle}>
      <div>
       <TimerDisplay />
@@ -24,7 +24,8 @@ const GamePanel = (props) => props.gameReady ?
   null
 
 const mapStateToProps = ({ fizzBuzz }) => ({
-  gameReady: fizzBuzz.gameReady
+  gameReady: fizzBuzz.gameReady,
+  isEnd: fizzBuzz.isEnd
 })
 
 export default connect(

@@ -16,7 +16,7 @@ const PassButton = (props) => {
         variant="fab"
         color="primary"
         className={classes.button}
-        onClick={props.passNumber}
+        onClick={() => props.passNumber(props.activeTimers, props.userCalls, props.maxCalls)}
       >
         Pass
       </Button>
@@ -29,7 +29,10 @@ PassButton.propTypes = {
 };
 
 const mapStateToProps = ({ fizzBuzz }) => ({
-  currentNumber: fizzBuzz.currentNumber
+  currentNumber: fizzBuzz.currentNumber,
+  activeTimers: fizzBuzz.activeTimers,
+  userCalls: fizzBuzz.userCalls,
+  maxCalls: fizzBuzz.maxCalls
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

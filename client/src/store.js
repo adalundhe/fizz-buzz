@@ -1,9 +1,7 @@
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
-import createHistory from 'history/createBrowserHistory'
+import timerMiddleware from 'redux-timer-middleware'
 import rootReducer from './reducers'
-
-export const history = createHistory()
 
 const initialState = {}
 const enhancers = []
@@ -19,7 +17,10 @@ if (process.env.NODE_ENV === 'development') {
 const store = createStore(
   rootReducer,
   initialState,
-  applyMiddleware(thunk)
+  applyMiddleware(
+    thunk,
+    timerMiddleware
+  )
 )
 
 export default store

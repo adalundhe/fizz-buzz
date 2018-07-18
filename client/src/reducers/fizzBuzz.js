@@ -17,11 +17,12 @@ import {
   CHECK_PLAYER_WIN_STATE,
   SET_GAME_END_STATE,
   RESET_GAME,
+  RESET_DATA,
   initialState
 } from '../constants'
 
 export default (state = initialState, action) => {
-  console.log(action, state.currentNumberIndex, state.resultsArray[state.currentNumberIndex - 1])
+  console.log(action, state)
   switch (action.type) {
     case CHECK_FIZZ:
       return {
@@ -71,7 +72,7 @@ export default (state = initialState, action) => {
     case SELECT_NUMBER:
     return {
       ...state,
-      currentNumber: state.gameArray[state.currentNumberIndex]
+      currentNumber: state.gameArray[state.currentNumberIndex - 1]
     }
     case GET_NEXT_NUMBER:
       return {
@@ -83,7 +84,9 @@ export default (state = initialState, action) => {
         ...state,
         isLoading: true,
         hasErrored: false,
-        gameReady: false
+        gameReady: false,
+        playerWin: false,
+        playerLose: false
       }
     case REQUEST_HAS_ERRORED:
       return {
@@ -97,14 +100,14 @@ export default (state = initialState, action) => {
         ...state,
         isLoading: false,
         hasErrored: false,
-        gameReady: true,
+        gameReady: state.gameArray.length > 1,
         resultsArray: action.resultsArray,
         gameArray: action.resultsArray.map((item, index) => index + 1)
       }
     case CHECK_IS_END:
       return {
         ...state,
-        isEnd: state.currentNumberIndex >= state.gameArray.length
+        isEnd: state.currentNumberIndex > state.gameArray.length - 1
       }
     case CHECK_PLAYER_WIN_STATE:
       return {
@@ -115,17 +118,23 @@ export default (state = initialState, action) => {
     case SET_GAME_END_STATE:
       return {
         ...state,
-        gameReady: (!state.isLoading && !state.hasErrored && !state.isEnd)
+        gameReady: !state.isLoading && !state.hasErrored && !state.isEnd
       }
     case RESET_GAME:
       return {
         ...state,
         score: 0,
-        currentNumber: 0,
+        currentNumber: state.gameArray[0],
         currentNumberIndex: 0,
-        isEnd: false,
+        isLoading: true,
         playerWin: false,
-        playerLose: false,
+        playerLose: false
+      }
+    case RESET_DATA:
+      return {
+        ...state,
+        resultsArray: [],
+        gameArray: []
       }
     default:
       return state

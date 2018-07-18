@@ -19,6 +19,11 @@ export {
   CHECK_IS_END,
   CHECK_PLAYER_WIN_STATE,
   SET_GAME_END_STATE,
-  RESET_GAME
+  RESET_GAME,
+  UPDATE_TIMER,
+  ADD_ACTIVE_TIMER,
+  REMOVE_ACTIVE_TIMER,
+  ADD_USER_CALL,
+  RESET_DATA
 } from './ActionTypes'
 export { API_URL } from './UrlConstants'

@@ -11,6 +11,7 @@ import {
 
 const checkBuzz = () => {
   return dispatch => {
+
     dispatch({
       type: CHECK_BUZZ
     })
@@ -24,16 +25,16 @@ const checkBuzz = () => {
       type: CHECK_IS_END
     })
     dispatch({
-      type: CHECK_PLAYER_WIN_STATE
-    })
-    dispatch({
       type: SET_GAME_END_STATE
     })
     dispatch({
-      type: SELECT_NUMBER
+      type: CHECK_PLAYER_WIN_STATE
     })
     dispatch({
       type: GET_NEXT_NUMBER
+    })
+    dispatch({
+      type: SELECT_NUMBER
     })
   }
 }

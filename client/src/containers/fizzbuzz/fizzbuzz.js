@@ -3,11 +3,9 @@ import { FizzBuzzGame} from '../../components'
 import { getData } from '../../actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { sleep } from '../../utilities'
 
 class FizzBuzz extends Component {
-    state = {
-      loaded: false
-    }
     componentDidMount = () => {
       this.props.getData()
     }
@@ -18,7 +16,7 @@ class FizzBuzz extends Component {
     }
 }
 
-const mapStateToProps = () => ({})
+const mapStateToProps = ({ fizzBuzz }) => ({})
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   getData

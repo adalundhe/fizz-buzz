@@ -10,8 +10,8 @@ const initialState = {
   isEnd: false,
   playerWin: false,
   playerLose: false,
-  currentNumber: 3,
-  currentNumberIndex: 1,
+  currentNumber: null,
+  currentNumberIndex: 0,
   isLoading: false,
   hasErrored: false,
   gameReady: false

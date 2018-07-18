@@ -1,9 +1,9 @@
 import React from 'react'
-import ProgressBar from 'react-progress-bar-plus'
+import { Line, Circle } from 'rc-progress'
 
 const TimerDisplay = (props) =>
   <div>
-    <ProgressBar precent={100} />
+    <Line percent={10} strokeWidth='1' strokeColor="#81D4FA" trailColor="#B3E5FC" />
   </div>
 
 export default TimerDisplay
