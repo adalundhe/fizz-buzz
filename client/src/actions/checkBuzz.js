@@ -12,15 +12,6 @@ import {
 const checkBuzz = () => {
   return dispatch => {
     dispatch({
-      type: CHECK_IS_END
-    })
-    dispatch({
-      type: CHECK_PLAYER_WIN_STATE
-    })
-    dispatch({
-      type: SET_GAME_END_STATE
-    })
-    dispatch({
       type: CHECK_BUZZ
     })
     dispatch({
@@ -28,6 +19,15 @@ const checkBuzz = () => {
     })
     dispatch({
       type: DECREMENT_SCORE_BUZZ
+    })
+    dispatch({
+      type: CHECK_IS_END
+    })
+    dispatch({
+      type: CHECK_PLAYER_WIN_STATE
+    })
+    dispatch({
+      type: SET_GAME_END_STATE
     })
     dispatch({
       type: SELECT_NUMBER

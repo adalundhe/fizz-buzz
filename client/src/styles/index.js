@@ -9,3 +9,4 @@ export { default as displayContainerStyle } from  './displays/displayContainerSt
 export { default as currentNumberDisplayStyle } from  './displays/currentNumberDisplayStyles'
 export { default as scoreDisplayStyle } from  './displays/scoreDisplayStyles'
 export { default as gamePanelStyle } from  './panels/gamePanelStyles'
+export { default as playerWinDisplayStyle } from './displays/playerWinDisplayStyles'

@@ -36,7 +36,7 @@ export default (state = initialState, action) => {
     case CHECK_FIZZBUZZ:
       return {
         ...state,
-        isFizzBuzz: state.isFizz && state.isBuzz
+        isFizzBuzz: state.resultsArray[state.currentNumberIndex - 1] === "FizzBuzz!"
       }
     case INCREMENT_SCORE_FIZZBUZZ:
       return {

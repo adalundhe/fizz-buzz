@@ -15,21 +15,6 @@ const checkFizzBuzz = () => {
   return dispatch => {
     console.log("GOT")
     dispatch({
-      type: CHECK_IS_END
-    })
-    dispatch({
-      type: CHECK_PLAYER_WIN_STATE
-    })
-    dispatch({
-      type: SET_GAME_END_STATE
-    })
-    dispatch({
-      type: CHECK_FIZZ
-    })
-    dispatch({
-      type: CHECK_BUZZ
-    })
-    dispatch({
       type: CHECK_FIZZBUZZ
     })
     dispatch({
@@ -37,6 +22,15 @@ const checkFizzBuzz = () => {
     })
     dispatch({
       type: DECREMENT_SCORE_FIZZBUZZ
+    })
+    dispatch({
+      type: CHECK_IS_END
+    })
+    dispatch({
+      type: CHECK_PLAYER_WIN_STATE
+    })
+    dispatch({
+      type: SET_GAME_END_STATE
     })
     dispatch({
       type: SELECT_NUMBER

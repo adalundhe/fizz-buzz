@@ -2,16 +2,17 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { ResetGameButton } from '../buttons'
 import { ScoreDisplay } from './'
+import { playerWinDisplayStyle } from '../../../styles'
 
 const PlayerLoseDisplay = (props) => props.playerLose ?
-  <div>
-    <div>
+  <div style={playerWinDisplayStyle.container}>
+    <div style={playerWinDisplayStyle.header}>
       You Lost!
     </div>
     <div>
       <ScoreDisplay />
     </div>
-    <div>
+    <div style={playerWinDisplayStyle.section}>
       <ResetGameButton />
     </div>
   </div>
