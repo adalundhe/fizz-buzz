@@ -11,6 +11,9 @@ import (
 func ExecuteFizzBuzz(w http.ResponseWriter, r *http.Request){
 
     googleFunctionUrl := os.Getenv("FUNCTION_URL")
+    if googleFunctionUrl == "" {
+      panic("Error: No function url found.")
+    }
 
     maxRange, err := strconv.Atoi(os.Getenv("MAX_RANGE"))
     if err != nil {
