@@ -10,3 +10,5 @@ export { default as currentNumberDisplayStyle } from  './displays/currentNumberD
 export { default as scoreDisplayStyle } from  './displays/scoreDisplayStyles'
 export { default as gamePanelStyle } from  './panels/gamePanelStyles'
 export { default as playerWinDisplayStyle } from './displays/playerWinDisplayStyles'
+export { loadingDisplayStyle, loadingProgressBarStyle } from './displays/loadingDisplayStyles'
+export { errorDisplayStyle, errorDisplayCard } from './displays/errorDisplayStyles'
