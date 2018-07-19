@@ -14,9 +14,8 @@ const errorDisplayCard = theme => ({
     paddingTop: theme.spacing.unit * 2,
     paddingBottom: theme.spacing.unit * 2,
     width: '20%',
-    paddingTop: "6em",
-    paddingBottom: "6em",
-    height: "20%"
+    paddingTop: "1em",
+    paddingBottom: "1em"
   },
 });
 
