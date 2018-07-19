@@ -21,13 +21,13 @@ const ScoringGameDisplay = (props) => {
            <Typography component="p" color="textSecondary" className={classes.pos}>
               If a number is evenly divisible by 3, then <br />
               click:
-              <em>{'"Buzz!"'}</em> for three points.
+              <em>{'"Fizz!"'}</em> for three points.
               <br />
            </Typography>
            <Typography component="p" color="textSecondary" className={classes.pos}>
              If the number is evenly divisible by 5, then <br/>
              click:
-             <em>{'"Fizz!"'}</em> for five points.<br />
+             <em>{'"Buzz!"'}</em> for five points.<br />
            </Typography>
            <Typography component="p" color="textSecondary" className={classes.pos}>
              If the number is evenly divisible by <em>both</em>, <br/>

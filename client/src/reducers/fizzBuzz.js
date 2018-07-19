@@ -30,17 +30,17 @@ export default (state = initialState, action) => {
     case CHECK_FIZZ:
       return {
         ...state,
-        isFizz: state.resultsArray[state.currentNumberIndex - 1] === "Fizz!"
+        isFizz: state.resultsArray[state.currentNumberIndex - 1] === `Fizz! ${state.currentNumber}`
       }
     case CHECK_BUZZ:
       return {
         ...state,
-        isBuzz: state.resultsArray[state.currentNumberIndex - 1] === "Buzz!"
+        isBuzz: state.resultsArray[state.currentNumberIndex - 1] === `Buzz! ${state.currentNumber}`
       }
     case CHECK_FIZZBUZZ:
       return {
         ...state,
-        isFizzBuzz: state.resultsArray[state.currentNumberIndex - 1] === "FizzBuzz!"
+        isFizzBuzz: state.resultsArray[state.currentNumberIndex - 1] === `FizzBuzz! ${state.currentNumber}`
       }
     case INCREMENT_SCORE_FIZZBUZZ:
       return {
@@ -55,22 +55,22 @@ export default (state = initialState, action) => {
     case INCREMENT_SCORE_FIZZ:
       return {
         ...state,
-        score: state.isFizz ? state.score + 5 : state.score,
+        score: state.isFizz ? state.score + 3 : state.score,
       }
     case DECREMENT_SCORE_FIZZ:
       return {
         ...state,
-        score: !state.isFizz ? state.score - 5 : state.score,
+        score: !state.isFizz ? state.score - 3 : state.score,
       }
     case INCREMENT_SCORE_BUZZ:
       return {
         ...state,
-        score: state.isBuzz ? state.score + 3 : state.score,
+        score: state.isBuzz ? state.score + 5 : state.score,
       }
     case DECREMENT_SCORE_BUZZ:
       return {
         ...state,
-        score: !state.isBuzz ? state.score - 3 : state.score,
+        score: !state.isBuzz ? state.score - 5 : state.score,
       }
     case SELECT_NUMBER:
     return {
