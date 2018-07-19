@@ -29,6 +29,7 @@ export {
   UPDATE_PROGRESS_BAR,
   RESET_PROGRESS_BAR,
   ADD_TIMER,
-  CLEAR_TIMER
+  CLEAR_TIMER,
+  CHANGE_ACTIVE_DISPLAY
 } from './ActionTypes'
 export { API_URL } from './UrlConstants'

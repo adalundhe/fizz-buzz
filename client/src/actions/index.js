@@ -6,3 +6,4 @@ export { requestIsLoading, requestHasErrored, requestFetchDataSuccess } from './
 export { default as getData } from './getData'
 export { default as stopTimers } from './stopTimers'
 export { default as runTimer } from './runTimer'
+export { default as switchActiveDisplay } from './switchActiveDisplay'

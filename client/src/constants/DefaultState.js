@@ -16,7 +16,11 @@ const initialState = {
   hasErrored: false,
   gameReady: false,
   progressBarPercent: 0,
-  activeTimer: null
+  activeTimer: null,
+  showScoringGameInfo: false,
+  showPlayGameInfo: false,
+  showStartGameInfo: true
+
 }
 
 export default initialState

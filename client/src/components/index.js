@@ -1,5 +1,4 @@
 export {default as NavBar} from './navbar/navbar'
-export {default as Home} from './static/home'
-export {default as About} from './static/about'
+export { Home, About } from './static'
 export {default as Routes} from './routes/routes'
 export { default as FizzBuzzGame } from './fizzbuzz/fizzbuzz'

@@ -4,9 +4,16 @@ import {
   RESET_PROGRESS_BAR,
   CLEAR_TIMER
 } from '../constants'
+import { STOP_TIMER } from 'redux-timer-middleware'
 
 const stopTimers = () => {
   return dispatch => {
+    dispatch({
+      type: STOP_TIMER,
+      payload: {
+        timerName: 'runProgressBarTimer'
+      }
+    })
     dispatch({
       type: CLEAR_TIMER
     })
