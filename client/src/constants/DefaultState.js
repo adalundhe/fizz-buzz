@@ -14,7 +14,9 @@ const initialState = {
   currentNumberIndex: 0,
   isLoading: false,
   hasErrored: false,
-  gameReady: false
+  gameReady: false,
+  progressBarPercent: 0,
+  activeTimer: null
 }
 
 export default initialState

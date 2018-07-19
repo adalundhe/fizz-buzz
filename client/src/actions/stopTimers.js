@@ -1,8 +1,22 @@
 import { STOP_TIMER } from 'redux-timer-middleware'
-import { RESET_GAME, RESET_DATA, GET_NEXT_NUMBER } from '../constants'
+import {
+  RESET_DATA,
+  GET_NEXT_NUMBER,
+  RESET_PROGRESS_BAR,
+  CLEAR_TIMER
+} from '../constants'
 
 const stopTimers = () => {
   return dispatch => {
+    dispatch({
+      type: STOP_TIMER,
+      payload: {
+        timerName: 'runProgressBarTimer'
+      }
+    })
+    dispatch({
+      type: CLEAR_TIMER
+    })
     dispatch({
       type: RESET_DATA
     })
@@ -38,6 +52,9 @@ const stopTimers = () => {
     })
     dispatch({
       type: GET_NEXT_NUMBER
+    })
+    dispatch({
+      type: RESET_PROGRESS_BAR
     })
   }
 }

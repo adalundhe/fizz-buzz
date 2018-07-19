@@ -18,11 +18,14 @@ import {
   SET_GAME_END_STATE,
   RESET_GAME,
   RESET_DATA,
+  UPDATE_PROGRESS_BAR,
+  RESET_PROGRESS_BAR,
+  ADD_TIMER,
+  CLEAR_TIMER,
   initialState
 } from '../constants'
 
 export default (state = initialState, action) => {
-  console.log(action, state)
   switch (action.type) {
     case CHECK_FIZZ:
       return {
@@ -135,6 +138,26 @@ export default (state = initialState, action) => {
         ...state,
         resultsArray: [],
         gameArray: []
+      }
+    case UPDATE_PROGRESS_BAR:
+      return {
+        ...state,
+        progressBarPercent: state.progressBarPercent < 100 ? state.progressBarPercent + 1 : 0
+      }
+    case RESET_PROGRESS_BAR:
+      return {
+        ...state,
+        progressBarPercent: 0
+      }
+    case ADD_TIMER:
+      return {
+        ...state,
+        activeTimer: action.timer
+      }
+    case CLEAR_TIMER:
+      return {
+        ...state,
+        activeTimer: window.clearInterval(state.activeTimer)
       }
     default:
       return state

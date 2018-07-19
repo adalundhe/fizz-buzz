@@ -4,8 +4,7 @@ import {
   CHECK_IS_END,
   CHECK_PLAYER_WIN_STATE,
   SET_GAME_END_STATE,
-  REMOVE_ACTIVE_TIMER,
-  ADD_USER_CALL
+  RESET_PROGRESS_BAR
 } from '../constants'
 
 const passNumber = () => {
@@ -26,6 +25,9 @@ const passNumber = () => {
     })
     dispatch({
       type: SELECT_NUMBER
+    })
+    dispatch({
+      type: RESET_PROGRESS_BAR
     })
   }
 

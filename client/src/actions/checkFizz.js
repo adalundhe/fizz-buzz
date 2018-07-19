@@ -6,7 +6,8 @@ import {
   GET_NEXT_NUMBER,
   CHECK_IS_END,
   CHECK_PLAYER_WIN_STATE,
-  SET_GAME_END_STATE
+  SET_GAME_END_STATE,
+  RESET_PROGRESS_BAR
 } from '../constants'
 
 const checkFizz = () => {
@@ -35,6 +36,9 @@ const checkFizz = () => {
     })
     dispatch({
       type: SELECT_NUMBER
+    })
+    dispatch({
+      type: RESET_PROGRESS_BAR
     })
   }
 }

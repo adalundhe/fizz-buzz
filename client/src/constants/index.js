@@ -1,5 +1,6 @@
 export {default as LinkParams} from './LinkParams'
 export {default as initialState} from './DefaultState'
+export { TIMER_INTERVAL } from './DataConstants'
 export {
   GET_DATA,
   SELECT_NUMBER,
@@ -24,6 +25,10 @@ export {
   ADD_ACTIVE_TIMER,
   REMOVE_ACTIVE_TIMER,
   ADD_USER_CALL,
-  RESET_DATA
+  RESET_DATA,
+  UPDATE_PROGRESS_BAR,
+  RESET_PROGRESS_BAR,
+  ADD_TIMER,
+  CLEAR_TIMER
 } from './ActionTypes'
 export { API_URL } from './UrlConstants'
