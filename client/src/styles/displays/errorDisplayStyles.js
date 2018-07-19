@@ -11,8 +11,6 @@ const errorDisplayStyle = {
 const errorDisplayCard = theme => ({
   root: {
     ...theme.mixins.gutters(),
-    paddingTop: theme.spacing.unit * 2,
-    paddingBottom: theme.spacing.unit * 2,
     width: '20%',
     paddingTop: "1em",
     paddingBottom: "1em"

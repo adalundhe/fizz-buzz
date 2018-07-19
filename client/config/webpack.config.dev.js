@@ -1,5 +1,5 @@
 'use strict';
-
+require('dotenv').config()
 const autoprefixer = require('autoprefixer');
 const path = require('path');
 const webpack = require('webpack');
