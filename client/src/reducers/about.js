@@ -4,7 +4,6 @@ import {
 } from '../constants'
 
 export default (state = initialState, action) => {
-  console.log("GOT:", action)
   switch (action.type) {
     case CHANGE_ACTIVE_DISPLAY:
       return {

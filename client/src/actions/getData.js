@@ -27,7 +27,6 @@ const getData = () => {
                 dispatch(runTimer())
               })
               .catch(error => {
-                console.log('ERR',error)
                 return dispatch(requestHasErrored(true))
               })
   }

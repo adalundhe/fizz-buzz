@@ -10,7 +10,7 @@ server:
 client:
   build: npm start
   ports:
-    - 3000:3000
+    - 5000:5000
   volumes:
     - ./client:/go/src/github.com/scorbettUM/fizz_buzz/client
   environment:
