@@ -9,43 +9,46 @@ import (
   "fmt"
 )
 
-func SendFizzBuzzRequest(googleUrl string, maxRange int) (*http.Response, error){
+func SendFizzBuzzRequest(googleUrl string, maxRange int, w http.ResponseWriter) (*http.Response, error){
 
   maxRangeData := models.MaxRange{Max_Range: maxRange}
 
   data, err := json.Marshal(maxRangeData)
+  if err != nil {
+    return nil, err
+  }
 
   request, err := http.NewRequest(http.MethodPost, googleUrl, bytes.NewBuffer(data))
   if err != nil {
-    panic(err)
+    return nil, err
   }
   request.Header.Set("X-Custom-Header", "myvalue")
   request.Header.Set("Content-Type", "application/json")
 
   client := &http.Client{}
 
-  response, getErr := client.Do(request)
+  response, err := client.Do(request)
   if err != nil {
-    panic(err)
+    return nil, err
   }
 
-  return response, getErr
+  return response, nil
 }
 
-func ParseResponseResults(response *http.Response) []string {
+func ParseResponseResults(response *http.Response, w http.ResponseWriter) ([]string, error) {
   body, readErr := ioutil.ReadAll(response.Body)
   if readErr != nil {
-    panic(readErr)
+    return nil, readErr
   }
 
   results := models.ResultsArray{}
 
   jsonErr := json.Unmarshal(body, &results)
   if jsonErr != nil {
-    panic(jsonErr)
+    return nil, jsonErr
   }
 
-  return results.Results_Array
+  return results.Results_Array, nil
 }
 
 func PrintResults(resultsArray []string) {
@@ -60,14 +63,31 @@ func PrintResults(resultsArray []string) {
   }
 }
 
-func SendResultsToClient(resultsArray []string, w http.ResponseWriter) {
+func SendResultsToClient(resultsArray []string, w http.ResponseWriter)(error) {
   data := models.ResultsArray{Results_Array: resultsArray}
 
   jsonData, err := json.Marshal(data)
   if err != nil {
-    panic(err)
+    return err
   }
 
+  w.Header().Set("Content-Type", "application/json")
+  w.Write(jsonData)
+
+  return nil
+}
+
+func SendError(statusCode int, errorMessage string, w http.ResponseWriter) {
+  errorResponse := models.ErrorResponse{Status: statusCode, Message: errorMessage}
+
+  jsonData, err := json.Marshal(errorResponse)
+  if err != nil {
+    w.WriteHeader(statusCode)
+    w.Write([]byte("An additional error creating an error message. Please examing the Docker logs."))
+    return
+  }
+
+  w.WriteHeader(statusCode)
   w.Header().Set("Content-Type", "application/json")
   w.Write(jsonData)
 
