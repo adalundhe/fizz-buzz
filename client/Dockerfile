@@ -18,6 +18,7 @@ WORKDIR /go/src/scorbettUM/fizz_buzz/client
 
 COPY . /go/src/scorbettUM/fizz_buzz/client
 
+RUN npm install
 RUN npm run build --production
 RUN npm install -g serve
 CMD serve -s build
