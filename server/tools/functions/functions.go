@@ -35,7 +35,25 @@ func SendFizzBuzzRequest(googleUrl string, maxRange int, w http.ResponseWriter) 
   return response, nil
 }
 
-func ParseResponseResults(response *http.Response, w http.ResponseWriter) ([]string, error) {
+func ParseMaxRange(response *http.Request) (int, error) {
+  body, readErr := ioutil.ReadAll(response.Body)
+  if readErr != nil {
+    return 100, readErr
+  }
+
+  results := models.MaxRange{}
+
+  jsonErr := json.Unmarshal(body, &results)
+  if jsonErr != nil {
+    return 100, jsonErr
+  }
+
+  maxRange := results.Max_Range
+
+  return maxRange, nil
+}
+
+func ParseResponseResults(response *http.Response) ([]string, error) {
   body, readErr := ioutil.ReadAll(response.Body)
   if readErr != nil {
     return nil, readErr
@@ -61,6 +79,20 @@ func PrintResults(resultsArray []string) {
     fmt.Println(fb_string)
 
   }
+}
+
+func SendMaxRangeToClient(maxRange int, w http.ResponseWriter)(error) {
+  data := models.MaxRange{Max_Range: maxRange}
+
+  jsonData, err := json.Marshal(data)
+  if err != nil {
+    return err
+  }
+
+  w.Header().Set("Content-Type", "application/json")
+  w.Write(jsonData)
+
+  return nil
 }
 
 func SendResultsToClient(resultsArray []string, w http.ResponseWriter)(error) {

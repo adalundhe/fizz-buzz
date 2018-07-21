@@ -12,6 +12,26 @@ const customLinkStyle = {
     color: "#F5F5F5",
     marginLeft: "0.5em"
   },
+  innerReactLink: {
+    textDecoration: "none",
+    color: "#F5F5F5",
+    '&:hover': {
+      textDecoration: "none",
+      color: "#F5F5F5"
+    },
+    '&:active': {
+      textDecoration: "none",
+      color: "#F5F5F5"
+    },
+    '&:visited': {
+      textDecoration: "none",
+      color: "#F5F5F5"
+    },
+    '&:focus': {
+      textDecoration: "none",
+      color: "#F5F5F5"
+    }
+  },
   iconStyle: {
     color: "#F5F5F5"
   }

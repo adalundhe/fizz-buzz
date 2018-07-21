@@ -19,8 +19,8 @@ const initialState = {
   activeTimer: null,
   showScoringGameInfo: false,
   showPlayGameInfo: false,
-  showStartGameInfo: true
-
+  showStartGameInfo: true,
+  numberSet: false
 }
 
 export default initialState

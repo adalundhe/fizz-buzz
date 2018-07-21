@@ -4,16 +4,7 @@ import { getData } from '../../actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-class FizzBuzz extends Component {
-    componentDidMount = () => {
-      this.props.getData()
-    }
-    render(){
-      return(
-        <FizzBuzzGame />
-      )
-    }
-}
+const FizzBuzz  = () => <FizzBuzzGame />
 
 const mapStateToProps = ({ fizzBuzz }) => ({})
 

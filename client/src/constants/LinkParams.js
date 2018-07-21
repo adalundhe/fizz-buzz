@@ -1,4 +1,4 @@
-const LINK_PARAMS = [
+const NAVBAR_LINK_PARAMS = [
   {
     'routeLink': '/',
     'routeName': 'Home',
@@ -16,4 +16,10 @@ const LINK_PARAMS = [
   }
 ]
 
-export default LINK_PARAMS
+const NUMBER_SELECT_LINK_PARAMS = {
+  routeLink: '/fizzbuzz/play',
+  routeName: 'Go!',
+  icon: ""
+}
+
+export {NAVBAR_LINK_PARAMS, NUMBER_SELECT_LINK_PARAMS}
