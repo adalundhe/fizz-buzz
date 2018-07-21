@@ -45,3 +45,18 @@ docker run -p 8000:8000 -e MAX_RANGE=100 server
 
 (or whatever number you want). Changing the `FUNCTION_URL` environmental
 variable can also be done if needed.
+
+### Playing
+
+To access the client app, go to:
+
+```
+http://localhost:5000
+```
+
+in your browser of choice (Chrome or Chromium is preferred). If you want
+to access the API directly, the default address is:
+
+```
+http://localhost:8000
+```
