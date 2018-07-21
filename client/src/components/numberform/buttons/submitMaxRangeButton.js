@@ -7,7 +7,6 @@ import { submitMaxRange } from '../../../actions'
 import { withStyles } from '@material-ui/core/styles';
 import { gameButtonStyle, numberButtonContainerStyle, customLinkStyle } from '../../../styles'
 import Button from '@material-ui/core/Button';
-import { CustomLink } from '../../navbar/customLink'
 
 const SubmitMaxRangeButton = (props) => {
 

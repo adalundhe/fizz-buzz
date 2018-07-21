@@ -39,7 +39,7 @@ NumberSelectInput.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-const parseInput = input => isNaN(parseInt(input)) || parseInt(input) < 1 ? 1 : parseInt(input)
+const parseInput = input => isNaN(parseInt(input, 10)) || parseInt(input, 10) < 1 ? 1 : parseInt(input, 10)
 
 const mapStateToProps = ({ fizzBuzz }) => ({
   maxRange: fizzBuzz.maxRange

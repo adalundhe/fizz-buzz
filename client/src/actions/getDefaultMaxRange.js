@@ -4,8 +4,7 @@ import {
 } from '../constants'
 import {
   requestIsLoading,
-  requestHasErrored,
-  requestFetchDataSuccess
+  requestHasErrored
 } from './'
 import axios from 'axios'
 
@@ -19,7 +18,7 @@ const getDefaultMaxRange = () => {
               .then(response => {
                 const data = response.data
                 const newMaxRange = data.max_range
-                
+
                 dispatch({
                   type: SUBMIT_MAX_RANGE,
                   newMaxRange
