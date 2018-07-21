@@ -1,12 +1,18 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import { aboutStyle } from '../../../styles'
-import { stopTimers } from '../../../actions'
+import { stopTimers, switchActiveDisplay } from '../../../actions'
 import TooltipContainer from './tooltips/tooltipContainer'
 import DisplaysContainer from './displays/displaysContainer'
 
 const About = (props) => {
-
-  stopTimers()
+  props.switchActiveDisplay({
+    showPlayGameInfo: false,
+    showStartGameInfo: true,
+    showScoringGameInfo: false
+  })
+  props.stopTimers()
 
   return (
     <div style={aboutStyle}>
@@ -21,5 +27,15 @@ const About = (props) => {
   )
 }
 
+const mapStateToProps = ({ fizzBuzz }) => ({})
 
-export default About
+const mapDispatchToProps = dispatch => bindActionCreators({
+  stopTimers,
+  switchActiveDisplay
+}, dispatch)
+
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(About)
