@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { getData, stopTimers } from '../../../actions'
+import { stopTimers } from '../../../actions'
 import { withStyles } from '@material-ui/core/styles';
-import { gameButtonStyle, buzzButtonContainerStyle } from '../../../styles'
+import { gameButtonStyle, buzzButtonContainerStyle, customLinkStyle } from '../../../styles'
 import Button from '@material-ui/core/Button';
 
 const ResetGameButton = (props) => {
@@ -13,14 +14,15 @@ const ResetGameButton = (props) => {
 
   return (
     <div style={buzzButtonContainerStyle}>
-      <Button
-        variant="fab"
-        color="primary"
-        className={classes.button}
-        onClick={() => props.getData()}
-      >
-        Reset
-      </Button>
+      <Link to="/fizzbuzz" style={customLinkStyle.innerReactLink}>
+        <Button
+          variant="fab"
+          color="primary"
+          className={classes.button}
+        >
+          Reset
+        </Button>
+      </Link>
     </div>
   )
 }
@@ -32,7 +34,6 @@ ResetGameButton.propTypes = {
 const mapStateToProps = ({ fizzBuzz }) => ({})
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  getData,
   stopTimers
 }, dispatch)
 

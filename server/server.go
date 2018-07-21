@@ -13,7 +13,8 @@ func StartServer(){
   router := mux.NewRouter()
   apiRoutes := mux.NewRouter().PathPrefix("/api").Subrouter().StrictSlash(true)
 
-  apiRoutes.HandleFunc("/fizz_buzz", routes.ExecuteFizzBuzz).Methods("GET")
+  apiRoutes.HandleFunc("/fizz_buzz", routes.ExecuteFizzBuzz).Methods("GET", "POST")
+  apiRoutes.HandleFunc("/seed", routes.SeedMaxRange).Methods("GET")
 
   router.PathPrefix("/api").Handler(negroni.New(
     negroni.Wrap(middlewares.CorsHandler(apiRoutes)),

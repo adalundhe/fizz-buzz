@@ -22,11 +22,19 @@ import {
   RESET_PROGRESS_BAR,
   ADD_TIMER,
   CLEAR_TIMER,
+  SUBMIT_MAX_RANGE,
   initialState
 } from '../constants'
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case SUBMIT_MAX_RANGE:
+      return {
+        ...state,
+        maxRange: action.newMaxRange,
+        numberSet: true,
+        isLoading: false
+      }
     case CHECK_FIZZ:
       return {
         ...state,
