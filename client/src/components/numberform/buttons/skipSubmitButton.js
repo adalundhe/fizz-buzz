@@ -12,7 +12,6 @@ import Button from '@material-ui/core/Button';
 const SkipSubmitButton = (props) => {
 
   const { classes } = props;
-  console.log(classes)
 
   return (
     <div style={numberButtonContainerStyle}>

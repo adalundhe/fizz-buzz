@@ -19,7 +19,7 @@ const getDefaultMaxRange = () => {
               .then(response => {
                 const data = response.data
                 const newMaxRange = data.max_range
-                console.log("GOT:", newMaxRange)
+                
                 dispatch({
                   type: SUBMIT_MAX_RANGE,
                   newMaxRange
