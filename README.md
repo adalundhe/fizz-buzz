@@ -9,13 +9,13 @@ designed to take a classic programming challenge and make it interactive.
  installed on your system. For easy installation run:
 
  ```
- docker build
+ docker-compose build
  ```
 
  followed by:
 
  ```
-docker up
+docker-compose up
  ```
 
 from the root directory (the latter command will start both the API and
